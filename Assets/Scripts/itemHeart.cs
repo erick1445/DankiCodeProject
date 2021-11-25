@@ -1,0 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class itemHeart : MonoBehaviour
+{
+    public int healthValue;
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<Player>().IncreaseLife(healthValue);
+            Destroy(gameObject);
+        }
+    }
+}
